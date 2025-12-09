@@ -118,15 +118,6 @@ const PdfEditor = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col md:flex-row font-sans text-gray-800">
       <aside className="w-full md:w-80 bg-white border-b md:border-b-0 md:border-r border-gray-200 p-6 flex flex-col gap-6 shadow-sm z-20 md:h-screen md:sticky md:top-0 overflow-y-auto">
-        <div className="mb-4">
-          <h1 className="text-2xl font-bold text-indigo-700 tracking-tight">
-            BoloForms
-          </h1>
-          <p className="text-xs text-gray-500 font-medium uppercase tracking-wide mt-1">
-            Signature Engine
-          </p>
-        </div>
-
         <div>
           <h2 className="text-sm font-bold text-gray-700 mb-3 uppercase tracking-wider">
             1. Document
@@ -199,7 +190,7 @@ const PdfEditor = () => {
                 : 'bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-lg'
             }`}
           >
-            🔥 BURN SIGNATURE
+            BURN SIGNATURE
           </button>
 
           {signedPdfUrl && (
@@ -215,7 +206,7 @@ const PdfEditor = () => {
         </div>
       </aside>
 
-      <main className="flex-1 bg-gray-100 p-4 md:p-8 overflow-x-hidden flex justify-center items-start relative min-h-screen">
+      <main className="flex-1 bg-gray-100 p-4 md:p-8  flex justify-center items-start relative min-h-screen">
         {!pdfFile ? (
           <div className="flex flex-col items-center justify-center h-full text-gray-400 mt-20">
             <div className="text-6xl mb-4">📄</div>
