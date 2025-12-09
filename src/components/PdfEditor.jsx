@@ -28,12 +28,28 @@ const PdfEditor = () => {
 
   const pdfContainerRef = useRef(null);
   const pdfWrapperRef = useRef(null);
+  const prevWidthRef = useRef(null);
 
   useEffect(() => {
     const updateWidth = () => {
       if (pdfWrapperRef.current) {
-        const width = pdfWrapperRef.current.offsetWidth;
-        setPdfPageWidth(Math.min(width, 800));
+        const currentWidth = pdfWrapperRef.current.offsetWidth;
+
+        const newWidth = Math.min(currentWidth, 800);
+
+        setPdfPageWidth(newWidth);
+
+        if (prevWidthRef.current && prevWidthRef.current !== newWidth) {
+          const ratio = newWidth / prevWidthRef.current;
+          setSignatureBox((prev) => ({
+            x: prev.x * ratio,
+            y: prev.y * ratio,
+            width: prev.width * ratio,
+            height: prev.height * ratio,
+          }));
+        }
+
+        prevWidthRef.current = newWidth;
       }
     };
 
